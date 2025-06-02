@@ -75,14 +75,14 @@ const TestComponent = () => {
   };
 
   return (
-    <div className="h-screen w-full bg-neutral-900 text-white flex flex-col p-4">
+    <div className="h-screen w-full bg-neutral-950 text-white flex flex-col p-4">
       {/* Top Section: Method, URL, and Send Button */}
       <div className="flex items-center space-x-4 mb-4">
         <Select onValueChange={setMethod} defaultValue={method}>
-          <SelectTrigger className="w-[120px] bg-neutral-700 text-white border-neutral-600">
+          <SelectTrigger className="w-[150px]   bg-neutral-800  text-white border-neutral-800">
             <SelectValue placeholder="Method" />
           </SelectTrigger>
-          <SelectContent className="bg-neutral-700 text-white border-neutral-600">
+          <SelectContent className="bg-neutral-700 py-2 text-white border-neutral-600">
             <SelectItem value="GET">GET</SelectItem>
             <SelectItem value="POST">POST</SelectItem>
             <SelectItem value="PUT">PUT</SelectItem>
@@ -96,35 +96,35 @@ const TestComponent = () => {
           placeholder="Enter request URL"
           value={url}
           onChange={(e) => setUrl(e.target.value)}
-          className="flex-grow bg-neutral-700 text-white border-neutral-600 placeholder-neutral-400"
+          className="flex-grow bg-neutral-900 h-12 text-white border-neutral-600 placeholder-neutral-400"
         />
-        <Button onClick={handleSendRequest} disabled={loading} className="bg-blue-600 hover:bg-blue-700 text-white">
+        <Button onClick={handleSendRequest} disabled={loading} className="bg-gray-200 h-12 w-20 rounded rounded-2xl  hover:bg-gray-500 border text-black">
           {loading ? 'Sending...' : 'Send'}
         </Button>
       </div>
 
       {/* Middle Section: Request Body/Params and AI Analysis */}
-      <div className="flex flex-grow space-x-4 mb-4">
+      <div className="flex flex    space-x-4 mb-4">
         {/* Request Body/Parameters Area (Left/Center) */}
         <div className="flex-grow flex flex-col">
            <Tabs defaultValue="body" className="flex flex-col flex-grow">
-              <TabsList className="grid w-full grid-cols-1 bg-neutral-700 border-neutral-600">
-                <TabsTrigger value="body" className="text-white data-[state=active]:bg-neutral-600 data-[state=active]:text-white">Body</TabsTrigger>
+              <TabsList className="grid w-full grid-cols-1 bg-neutral-950 h-16 border-neutral-600">
+                <TabsTrigger value="body" className="text-white text-2xl font-sans font-bold data-[state=active]:bg-neutral-600 data-[state=active]:text-white">Body</TabsTrigger>
               </TabsList>
               <TabsContent value="body" className="flex-grow">
                  <Textarea
                     placeholder="Enter request body (e.g., JSON)"
                     value={requestBody}
                     onChange={(e) => setRequestBody(e.target.value)}
-                    className="w-full flex-grow h-full bg-neutral-700 text-white border-neutral-600 placeholder-neutral-400 min-h-[200px]"
+                    className="w-full flex-grow h-full bg-neutral-700 text-white border-neutral-600 placeholder-neutral-400 h-[350px]"
                  />
               </TabsContent>
            </Tabs>
         </div>
 
         {/* AI Analysis Area (Right) */}
-        <div className="w-1/3 flex flex-col bg-neutral-700 rounded-lg p-3">
-          <h3 className="text-lg font-semibold mb-2">AI Analysis</h3>
+        <div className="w-1/3 flex flex-col bg-neutral-900 h-[430px] rounded-lg p-3">
+          <div className='w-48 item-center flex'><h3 className="text-lg rounded px-2 rounded-2xl font-mono text-amber-300 bg-amber-100/20 font-semibold mb-2">AI Analysis</h3></div>
           <ScrollArea className="flex-grow h-full pr-2">
             <p className="text-sm text-neutral-300 whitespace-pre-wrap">{aiAnalysis}</p>
           </ScrollArea>
@@ -134,11 +134,11 @@ const TestComponent = () => {
       {/* Bottom Section: Result Tab */}
       <div className="w-full flex-shrink-0">
         <Tabs defaultValue="result" className="w-full">
-          <TabsList className="grid w-full grid-cols-1 bg-neutral-800 border-neutral-600">
-            <TabsTrigger value="result" className="text-white data-[state=active]:bg-neutral-600 data-[state=active]:text-white">Result</TabsTrigger>
+          <TabsList className="grid w-full grid-cols-1 bg-neutral-900 h-20 border-neutral-600">
+            <TabsTrigger value="result" className="text-white text-2xl font-mono  data-[state=active]:bg-neutral-600 data-[state=active]:text-white">Result</TabsTrigger>
           </TabsList>
           <TabsContent value="result">
-            <ScrollArea className="h-[200px] w-full rounded-md border border-neutral-600 p-4 bg-neutral-700">
+            <ScrollArea className="h-[200px] w-full rounded-md border border-neutral-800 p-4 bg-neutral-900">
               <p className="text-sm text-neutral-300 whitespace-pre-wrap">{result}</p>
             </ScrollArea>
           </TabsContent>

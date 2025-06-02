@@ -1,6 +1,6 @@
 const { GoogleGenAI } = require("@google/genai");
 
-const ai = new GoogleGenAI({ apiKey: "AIzaSyBotVuLj3J1k05m0Qw_2d5nCzy5oRitupg" });
+const ai = new GoogleGenAI({ apiKey: "Enter API KEY" });
 
 async function logAiAdvice(apiResponse) {
   try {
@@ -21,6 +21,7 @@ Give the user:
 2. Any useful tip, warning, or insight (e.g., about security, efficiency, REST conventions).
 3. A clever or advanced testing suggestion, if applicable.
 Keep it short, professional, and relevant.
+please don't use * tags or markdown formatting.
 \n\n${JSON.stringify(apiResponse)}`,
     });
     // Return the advice string
